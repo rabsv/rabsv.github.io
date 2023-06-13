@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="res/imgs/favicon.png">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<title>Graf | IQminus</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<button id="back-to-top" class="shadow" onclick="backToTop()">
+		<i class="icon fa fa-chevron-up fa-sm"></i>
+	</button>
+
+	<div class="container">
+		<header id="site-header">
+			<div class="fix-filter">
+				<button class="theme" id="dark-theme" onclick="setTheme('dark')">
+					<i class="icon fa fa-moon-o fa-sm"></i>
+				</button>
+				<button class="theme" id="light-theme" onclick="setTheme('light')">
+					<i class="icon fa fa-sun-o fa-sm"></i>
+				</button>
+
+				<img id="site-logo" src="res/imgs/logo.png">
+				<nav id="site-nav">
+					<ul>
+						<li class="site-nav-manip" id="open-site-nav">
+							<a href="javascript:void(0);" onclick="openMenu()">
+								<i class="icon icon-prefix fa fa-bars fa-sm"></i> Otvoriť menu
+							</a>
+						</li>
+						<li class="site-nav-manip" id="close-site-nav">
+							<a href="javascript:void(0);" onclick="closeMenu()">
+								<i class="icon icon-prefix fa fa-bars fa-sm"></i> Zatvoriť menu
+							</a>
+						</li>
+						<li>
+							<a href="index.html">Domov</a>
+						</li>
+						<li>
+							<a href="calc.html">Kalkulačka</a>
+						</li>
+						<li class="active">
+							<a href="graph.html">Graf</a>
+						</li>
+						<li>
+							<a href="trig.html">Trigonometria</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="site-main">
+			<section class="page-section">
+				<div class="func-input">
+					<p class="left"><i>ƒ</i> (x) = </p>
+					<input type="text" class="line right" id="input" value="2sin(x)">
+					<div class="clearfix"></div>
+
+					<p><a href="calc.html#syntax">Vysvetlenie syntaxu</a></p>
+				</div>
+
+				<div class="gap">
+					<p>Rozsah grafu</p>
+					<input type="range" min="5" max="100" value="10" id="graph-range">
+				</div>
+
+				<canvas width="700px" height="700px" id="graph"></canvas>
+			</section>
+		</main>
+
+		<footer id="site-footer">
+			<h3>Urobené s láskou ❤️</h3>
+		</footer>
+	</div>
+
+	<script src="script.js"></script>
+	<script src="graph.js"></script>
+</body>
+</html>

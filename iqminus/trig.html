@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="res/imgs/favicon.png">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<title>Trigonometria | IQminus</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<button id="back-to-top" class="shadow" onclick="backToTop()">
+		<i class="icon fa fa-chevron-up fa-sm"></i>
+	</button>
+
+	<div class="container">
+		<header id="site-header">
+			<div class="fix-filter">
+				<button class="theme" id="dark-theme" onclick="setTheme('dark')">
+					<i class="icon fa fa-moon-o fa-sm"></i>
+				</button>
+				<button class="theme" id="light-theme" onclick="setTheme('light')">
+					<i class="icon fa fa-sun-o fa-sm"></i>
+				</button>
+
+				<img id="site-logo" src="res/imgs/logo.png">
+				<nav id="site-nav">
+					<ul>
+						<li class="site-nav-manip" id="open-site-nav">
+							<a href="javascript:void(0);" onclick="openMenu()">
+								<i class="icon icon-prefix fa fa-bars fa-sm"></i> Otvoriť menu
+							</a>
+						</li>
+						<li class="site-nav-manip" id="close-site-nav">
+							<a href="javascript:void(0);" onclick="closeMenu()">
+								<i class="icon icon-prefix fa fa-bars fa-sm"></i> Zatvoriť menu
+							</a>
+						</li>
+						<li>
+							<a href="index.html">Domov</a>
+						</li>
+						<li>
+							<a href="calc.html">Kalkulačka</a>
+						</li>
+						<li>
+							<a href="graph.html">Graf</a>
+						</li>
+						<li class="active">
+							<a href="trig.html">Trigonometria</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="site-main">
+			<section class="page-section">
+				<h1>Obsah</h1>
+				<ul>
+					<li>
+						<a href="#sin-cos">Sínus, kosínus</a>
+						<ul>
+							<li>
+								<a href="#sin">Sínus</a>
+							</li>
+							<li>
+								<a href="#cos">Kosínus</a>
+							</li>
+							<li>
+								<a href="#properties">Vlastnosti funkcií sínus a kosínus</a>
+							</li>
+							<li>
+								<a href="#sin-cos-relations">Vzťahy</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#tan-cot">Tangens, kotangens</a>
+						<ul>
+							<li>
+								<a href="#tan-graph">Graf funkcie tangens</a>
+							</li>
+
+							<li>
+								<a href="#cot-graph">Graf funkcie kotangens</a>
+							</li>
+							<li>
+								<a href="#tan-cot-relations">Vzťahy</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section class="page-section">
+                <div class="trig-info">
+                    <p id="cos-info">cos()</p>
+                    <p id="sin-info">sin()</p>
+                    <p id="tan-info">tan()</p>
+                </div>
+                <canvas width="300px" height="300px" class="interactive-image" id="trig-image"></canvas>
+                <button id="unit-switcher">Stupne</button>
+			</section>
+
+			<section class="page-section">
+				<h1 id="sin-cos">Sinus, kosinus</h1>
+				<p>
+					<b>Sínus a kosínus</b> sú periodické funkcie s najmenšou periódou 2π, stačí nájsť graf daných funkcií na intervale <span class="inline-code">〈0; 2π〉</span>.
+				</p>
+
+				<h2 id="sin">Sínus</h2>
+				<p>
+					Začneme najskôr grafom funkcie sínus. Funkčné hodnoty nebudeme počítať, ale získame ich graficky z jednotkovej kružnice pre dostatočný počet hodnôt argumentu x.
+					Jednotkovú kružnicu rozdelíme na 24 rovnakých častí, ktorým bude odpovedať 24 hodnôt argumentu z intervalu <span class="inline-code">〈0; 2π〉</span>. Celá kružnica predstavuje oblúk dĺžky 2π. Rozdelením na 24 rovnakých častí získame oblúky, z ktorých každý má dĺžku 2π/24 . Geometricky to znamená rozdeliť stredový uhol po 15°. Hodnoty y-ových súradníc prenesieme do grafu k odpovedajúcim argumentom x.
+				</p>
+
+				<img width="100%" src="res/imgs/sin.png">
+				<p class="center">Interaktívne zobrazenie</p>
+                <canvas width="450px" height="200px" class="interactive-image" id="sin-cos-image"></canvas>
+
+                <hr class="gap">
+
+                <p>Graf funkcie sínus nazývame <b>sínusoida</b>.</p>
+
+                <h2 id="cos">Kosínus</h2>
+                <p>
+                	Graf funkcie kosínus sa nazýva <b>kosínusoida</b>.
+                	Získame ho podobným spôsobom, prenášať však budeme x-ové súradnice bodov, tak ako je to ukázané na obrázku.
+                </p>
+
+				<img width="100%" src="res/imgs/cos.png">
+
+				<p>
+					Kosínusoida vznikla <b>posunutím sínusoidy v smere zápornej polosi x o π</b>. Potom, ale graf funkcie <span class="inline-code">y = cos(x)</span> môžeme chápať ako graf funkcie sínus. Argumentom však bude výraz premennej x. Ten zohľadní, že pri posunutí <span class="inline-code">y = sin(x)</span> nadobudne nová funkcia svoje hodnoty o π/2 skôr.
+				</p>
+
+				<img width="100%" src="res/imgs/sin-cos.png">
+
+				<p>teda <span class="inline-code">cos(x) = sin(x + π/2)</span></p>
+
+				<hr class="gap">
+
+				<h2 id="properties">Vlastnosti funkcií sínus a kosínus</h2>
+
+				<img class="center" width="50%" src="res/imgs/cos-circle.png">
+
+				<p>
+					Funkcia kosínus je <b>párna</b>, lebo x-ové súradnice bodov sú rovnaké.
+					Platí <span class="inline-code">cos(-x) = cos(x)</span>.
+				</p>
+
+				<img class="center" width="50%" src="res/imgs/sin-circle.png">
+
+				<p>
+					sin x a sin(-x) majú rovnakú veľkosť, líšia sa však znamienkom. Aj teraz je obrázok symetrický poľa osi x. Funkcia sínus je teda <b>nepárna</b>.
+					Platí <span class="inline-code">sin(-x) = -sin(x)</span>.
+				</p>
+
+				<h2 id="sin-cos-relations">Vzťahy</h2>
+
+				<img width="50%" class="center" src="res/imgs/circle.png">
+				<p>Podľa Pytagorovej vety môžeme z obrázku písať:</p>
+				<p>
+					Pre strany trojuholníka platí podľa Pytagorovej vety vzťah
+					<span class="inline-code">(OM')2 + (M'M)<sup>2</sup> = (OM)<sup>2</sup></span>.
+					Dosadíme vyjadrenia strán a máme
+					<span class="inline-code">cos(x)<sup>2</sup> + sin(x)<sup>2</sup> = 1</span>.
+				</p>
+			</section>
+
+			<section class="page-section">
+				<h1 id="tan-cot">Tangens, kotangens</h1>
+
+				<img class="center" width="50%" src="res/imgs/tan-sin-cos-circle.png">
+
+				<p class="center"><span class="inline-code">|OM'| = cos(x)</span></p>
+				<p class="center"><span class="inline-code">|MM'| = sin(x)</span></p>
+
+				<hr class="gap">
+
+				<p>
+					<b>Tangens</b> je pomer protiľahlej ku priľahlej odvesne a <b>kotangens</b> naopak.
+					Zapíšeme to vzťahmi
+					<span class="inline-code">tan(x) = |M'M| / |OM'| = sin(x) / cos(x)</span> a
+					<span class="inline-code">cot(x) = |M'O| / |MM'| = cos(x) / sin(x)</span>
+				</p>
+
+				<img class="center" width="50%" src="res/imgs/triangle.png">
+
+				<p class="center"><span class="inline-code">sin(α) = a/c</span></p>
+				<p class="center"><span class="inline-code">cos(α) = b/c</span></p>
+				<p class="center"><span class="inline-code">tan(α) = a/b</span></p>
+				<p class="center"><span class="inline-code">cot(α) = b/a</span></p>
+
+				<hr class="gap">
+
+				<p>
+					Definícia funkcií tangens a kotangens je v algebrickom tvare, ale obe funkcie možno interpretovať aj geometricky pomocou <b>jednotkovej kružnice</b>. Reálnemu číslu x priradíme na jednotkovej kružnici známym spôsobom bod M. Zostrojíme dotyčnicu p ku kružnici v bode J [1; 0]. Priesečník dotyčnice a polpriamky OM je bod P. y-ová súradnica bodu P je tan(x).
+				</p>
+
+				<img class="center" width="50%" src="res/imgs/tan-circle.png">
+
+				<p>Ak chceme určiť <span class="inline-code">tan(π/2)</span>, máme:</p>
+
+				<img class="center" width="50%" src="res/imgs/tan-circle2.png">
+
+				<p>
+					dotyčnica p a priamka OM sú rovnobežné. Nemajú spoločný bod P, ktorého y-ová súradnica má vyjadrovať <span class="inline-code">tan(π/2)</span>. Teda číslo <b>π/2 nepatrí do definičného oboru funkcie tangens</b>.
+				</p>
+
+				<h2 id="tan-graph">Graf funkcie tangens</h2>
+
+				<p>
+					Funkčné hodnoty pre tangens sú určené y-ovou súradnicou priesečníka priamky OM a dotyčnice p ku kružnici v bode J [1; 0]. Bod M na jednotkovej kružnici je priradený známym spôsobom reálnemu číslu x.
+				</p>
+
+				<img class="center" width="50%" src="res/imgs/tan-circle3.png">
+				<img width="100%" src="res/imgs/tan.png">
+
+				<p>
+					Výsledný graf pre funkciu tangens dostaneme, ak získanú časť zopakujeme na každom intervale
+					<span class="inline-code">(−π/2 + kπ; π/2 + kπ)</span> pre všetky celé čísla k.
+				</p>
+
+				<img width="100%" src="res/imgs/tan-graph.png">
+
+				<p>
+					Priamky vyznačené čiarkovane červenou farbou sú <b>asymptoty</b> grafu funkcie tangens a sú nutnou súčasťou grafu. Ich predpis je <span class="inline-code">x = (2k + 1)π/2</span>, kde k je celé číslo, lebo funkcia tangens nie je pre tieto hodnoty x definovaná. Graf funkcie tangens nazývame <b>tangentoida</b>.
+				</p>
+
+				<h2 id="cot-graph">Graf funkcie kotangens</h2>
+				<p>
+					Podobným spôsobom sa môžeme dopracovať ku grafu funkcie <b>kotangens</b>. Pripomeň, ako na základe jednotkovej kružnice odčítame hodnotu kotangensu. Sú to x-ové súradnice bodov, ktoré získame ako priesečníky dotyčnice ku kružnici v bode K [0; 1]  a koncového ramena uhla, ktorý odpovedá hodnote x.
+				</p>
+
+				<img class="center" width="50%" src="res/imgs/cot-circle.png">
+				<img width="100%" src="res/imgs/cot.png">
+
+				<p>
+					Ak zostrojíme takú istú krivku na každom intervale <span class="inline-code">(0 + kπ; π + kπ)</span>, kde k je celé číslo, dostaneme výsledný graf funkcie kotangens, ktorý nazývame <b>kotangentoida</b>.
+				</p>
+
+				<img width="100%" src="res/imgs/cot-graph.png">
+
+				<p>
+					Aj k tomu grafu patria asymptoty, na obrázku vyznačené opäť čiarkovane červenou farbou. Ich predpis bude <span class="inline-code">x = kπ</span>, kde k je celé číslo, lebo reálne čísla kπ nepatria do definičného oboru funkcie kotangens.
+				</p>
+
+				<h2 id="tan-cot-relations">Vzťahy</h2>
+
+				<p class="center"><span class="inline-code">tan(x) = sin(x) / cos(x)</span></p>
+				<p class="center"><span class="inline-code">cot(x) = cos(x) / sin(x)</span></p>
+				<p class="center"><span class="inline-code">tan(x) × cot(x) = (sin(x) / cos(x)) × (cos(x) / sin(x)) = 1</span></p>
+
+				<hr class="gap">
+
+				<p>posledný vzťah platí pre všetky reálne čísla, okrem celočíselných násobkov čísla π/2.</p>
+			</section>
+		</main>
+
+		<footer id="site-footer">
+			<h3>Urobené s láskou ❤️</h3>
+		</footer>
+	</div>
+
+	<script src="script.js"></script>
+	<script src="trig.js"></script>
+</body>
+</html>

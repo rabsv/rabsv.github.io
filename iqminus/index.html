@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="res/imgs/favicon.png">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<title>Domov | IQminus</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<button id="back-to-top" class="shadow" onclick="backToTop()">
+		<i class="icon fa fa-chevron-up fa-sm"></i>
+	</button>
+
+	<div class="container">
+		<header id="site-header">
+			<div class="fix-filter">
+				<button class="theme" id="dark-theme" onclick="setTheme('dark')">
+					<i class="icon fa fa-moon-o fa-sm"></i>
+				</button>
+				<button class="theme" id="light-theme" onclick="setTheme('light')">
+					<i class="icon fa fa-sun-o fa-sm"></i>
+				</button>
+
+				<img id="site-logo" src="res/imgs/logo.png">
+				<nav id="site-nav">
+					<ul>
+						<li class="site-nav-manip" id="open-site-nav">
+							<a href="javascript:void(0);" onclick="openMenu()">
+								<i class="icon icon-prefix fa fa-bars fa-sm"></i> Otvoriť menu
+							</a>
+						</li>
+						<li class="site-nav-manip" id="close-site-nav">
+							<a href="javascript:void(0);" onclick="closeMenu()">
+								<i class="icon icon-prefix fa fa-bars fa-sm"></i> Zatvoriť menu
+							</a>
+						</li>
+						<li class="active">
+							<a href="index.html">Domov</a>
+						</li>
+						<li>
+							<a href="calc.html">Kalkulačka</a>
+						</li>
+						<li>
+							<a href="graph.html">Graf</a>
+						</li>
+						<li>
+							<a href="trig.html">Trigonometria</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="site-main">
+			<section id="welcome-section" class="page-section">
+				<h1>Vitajte</h1>
+				<p>
+					Vítame vás na našej webovej stránke <b>IQMINUS</b>.
+					Naša stránka slúži na to, aby ste sa naučili matematiku.
+					Viete tu nájsť rôzne funkcie, ako napríklad <a href="calc.html">kalkulačku</a>, <a href="graph.html">graf</a>....
+				</p>
+
+				<hr class="gap">
+
+				<p>
+					Chceme vás naučiť matematiku, alebo ak nie naučiť, tak vám s ňou aspoň pomôcť.
+					Dúfame, že si pobyt na našej stránke užijete a využijete jej funkcie naplno.
+				</p>
+
+				<hr class="gap">
+
+				<p>
+					Stránku budeme postupom času vylepšovať, takže sa môžete tešiť na nové funkcie či informácie.
+					Ďakujeme vám za to, že využívate našu stránku. <b>Prajeme vám pekný a ničím nerušený pobyt.</b>
+				</p>
+
+				<hr class="gap">
+
+				<img class="gif" src="https://media1.tenor.com/images/3430baeefa3cfa4014f331414d544f45/tenor.gif?itemid=12656192">
+			</section>
+		</main>
+
+		<footer id="site-footer">
+			<h3>Urobené s láskou ❤️</h3>
+		</footer>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>

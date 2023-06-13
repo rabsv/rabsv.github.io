@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="res/imgs/favicon.png">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<title>Kalkulačka | IQminus</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<button id="back-to-top" class="shadow" onclick="backToTop()">
+		<i class="icon fa fa-chevron-up fa-sm"></i>
+	</button>
+
+	<div class="container">
+		<header id="site-header">
+			<div class="fix-filter">
+				<button class="theme" id="dark-theme" onclick="setTheme('dark')">
+					<i class="icon fa fa-moon-o fa-sm"></i>
+				</button>
+				<button class="theme" id="light-theme" onclick="setTheme('light')">
+					<i class="icon fa fa-sun-o fa-sm"></i>
+				</button>
+
+				<img id="site-logo" src="res/imgs/logo.png">
+				<nav id="site-nav">
+					<ul>
+						<li class="site-nav-manip" id="open-site-nav">
+							<a href="javascript:void(0);" onclick="openMenu()">
+								<i class="icon icon-prefix fa fa-bars fa-sm"></i> Otvoriť menu
+							</a>
+						</li>
+						<li class="site-nav-manip" id="close-site-nav">
+							<a href="javascript:void(0);" onclick="closeMenu()">
+								<i class="icon icon-prefix fa fa-bars fa-sm"></i> Zatvoriť menu
+							</a>
+						</li>
+						<li>
+							<a href="index.html">Domov</a>
+						</li>
+						<li class="active">
+							<a href="calc.html">Kalkulačka</a>
+						</li>
+						<li>
+							<a href="graph.html">Graf</a>
+						</li>
+						<li>
+							<a href="trig.html">Trigonometria</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="site-main">
+			<section class="page-section">
+				<div class="page-half-side left">
+					<textarea id="input">x = 5
+5 + 5x
+round(5(|-pi - 2pi|))
+
+sin(x)^2 + cos(x)^2</textarea>
+				</div>
+				<div class="page-half-side right">
+					<textarea readonly id="result"></textarea>
+				</div>
+				<button onclick="evalMathExprFromInputField('input')">Vypočítať</button>
+			</section>
+
+			<section class="page-section">
+				<h1 id="syntax">Syntax</h1>
+				<h2>Operácie</h2>
+				<table>
+					<tr>
+						<td>
+							<p>Syntax</p>
+						</td>
+						<td>
+							<p>Matematický zápis</p>
+						</td>
+						<td>
+							<p>Vysvetlenie</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>a + b</p>
+						</td>
+						<td>
+							<p>a + b</p>
+						</td>
+						<td>
+							<p>a plus b</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>a - b</p>
+						</td>
+						<td>
+							<p>a - b</p>
+						</td>
+						<td>
+							<p>a mínus b</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>a * b</p>
+						</td>
+						<td>
+							<p>a × b</p>
+						</td>
+						<td>
+							<p>a krát b</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>a b</p>
+						</td>
+						<td>
+							<p>ab</p>
+						</td>
+						<td>
+							<p>a krát b</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>a / b</p>
+						</td>
+						<td>
+							<p>a ÷ b</p>
+						</td>
+						<td>
+							<p>a delené b</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>a % b</p>
+						</td>
+						<td>
+							<p>a mod b</p>
+						</td>
+						<td>
+							<p>a modul b</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>a ^ b</p>
+						</td>
+						<td>
+							<p>a<sup>b</sup></p>
+						</td>
+						<td>
+							<p>a na b</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>|a|</p>
+						</td>
+						<td>
+							<p>|a|</p>
+						</td>
+						<td>
+							<p>absolútna hodnota z a</p>
+						</td>
+					</tr>
+				</table>
+				<h2>Funkcie</h2>
+				<table>
+					<tr>
+						<td>
+							<p>Syntax</p>
+						</td>
+						<td>
+							<p>Matematický zápis</p>
+						</td>
+						<td>
+							<p>Vysvetlenie</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>sin(x)</p>
+						</td>
+						<td>
+							<p>sin(x)</p>
+						</td>
+						<td>
+							<p>sínus x</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>cos(x)</p>
+						</td>
+						<td>
+							<p>cos(x)</p>
+						</td>
+						<td>
+							<p>cosínus x</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>tan(x)</p>
+						</td>
+						<td>
+							<p>tan(x)</p>
+						</td>
+						<td>
+							<p>tangens x</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>floor(x)</p>
+						</td>
+						<td>
+						</td>
+						<td>
+							<p>zaokrúhlenie x nadol</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>ceil(x)</p>
+						</td>
+						<td>
+						</td>
+						<td>
+							<p>zaokrúhlenie x nahor</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>round(x)</p>
+						</td>
+						<td>
+						</td>
+						<td>
+							<p>zaokrúhlenie x</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>sqrt(x)</p>
+						</td>
+						<td>
+							<p>√x</p>
+						</td>
+						<td>
+							<p>druhá odmocnina z x</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>cbrt(x)</p>
+						</td>
+						<td>
+							<p><sup>3</sup>√x</p>
+						</td>
+						<td>
+							<p>tretia odmocnina z x</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>ln(x)</p>
+						</td>
+						<td>
+							<p>ln(x)</p>
+						</td>
+						<td>
+							<p>prírodzený logaritmus x</p>
+						</td>
+					</tr>
+				</table>
+				<h2>Konštanty</h2>
+				<table>
+					<tr>
+						<td>
+							<p>Syntax</p>
+						</td>
+						<td>
+							<p>Matematický zápis</p>
+						</td>
+						<td>
+							<p>Vysvetlenie</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>pi (PI, π)</p>
+						</td>
+						<td>
+							<p>π</p>
+						</td>
+						<td>
+							<p>Ludolfovo číslo</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>e</p>
+						</td>
+						<td>
+							<p>e</p>
+						</td>
+						<td>
+							<p>Eulerovo číslo</p>
+						</td>
+					</tr>
+				</table>
+			</section>
+		</main>
+
+		<footer id="site-footer">
+			<h3>Urobené s láskou ❤️</h3>
+		</footer>
+	</div>
+
+	<script src="script.js"></script>
+	<script src="calc.js"></script>
+</body>
+</html>
