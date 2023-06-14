@@ -261,10 +261,6 @@ img#site-logo {
 	margin:  0 auto;
 }
 
-nav#site-nav ul {
-	margin-left: 0.2rem;
-}
-
 nav#site-nav li {
 	display: inline-block;
 	margin:  0;
@@ -498,6 +494,18 @@ li.site-nav-manip a {
 	section#welcome-section {
 		background-size:     100%;
 		background-position: 0% 7%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	canvas#sin-cos-image {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	canvas#trig-image {
+		width: 100%;
 	}
 }
 
